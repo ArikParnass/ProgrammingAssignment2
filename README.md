@@ -107,6 +107,9 @@ This assignment will be graded via peer assessment.
 
 Solution:
 
+# These functions will take any invertible matrix and cache (and then print) the inverse
+
+# The makeCacheMatrix function creates the matrix that will store the input
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL # set initial variable to store inverse matrix equal to zero
@@ -127,6 +130,9 @@ makeCacheMatrix <- function(x = matrix()) {
        getInverse = getInverse)
 }
 
+# The cachesolve function uses the makeCacheMatrix function elements to 
+# calculate/store/retrieve the inverse of a given matrix and return the result 
+
 cachesolve <- function(x, ...) {
   inv <- x$getInverse() # attempts to retrieve inverse
   if(!is.null(inv)) {
@@ -134,7 +140,7 @@ cachesolve <- function(x, ...) {
     return(inv) # if prior inverse recorded, it is provided
   }
   data <- x$get() # if no prior inverse, calculates it
-  inv <- solve(data, ...)
+  inv <- solve(data)
   x$setInverse(inv)
   inv # prints solution
 }
